@@ -25,4 +25,6 @@ Route::delete('/books/{id}', [BookController::class, 'destroy'])->name('books.de
 
 
 Route::get('/login', [UserController::class, 'getLoginPage'])->name('users.loginPage');
-Route::get('/signup', [UserController::class, 'getSignupPage'])->name('users.signup Page');
+Route::post('/login', [UserController::class, 'login'])->name('users.login');
+Route::get('/signup', [UserController::class, 'getSignupPage'])->name('users.signupPage');
+Route::post('/signup', [UserController::class, 'signup'])->name('users.signup');
