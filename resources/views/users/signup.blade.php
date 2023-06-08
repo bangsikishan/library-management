@@ -11,6 +11,7 @@
                     type="text" 
                     name="name" 
                     placeholder="Name" 
+                    value="{{ old('name') }}" 
                     class="block border border-gray-400 rounded-sm py-2 px-4 w-full text-sm md:text-base" 
                     required
                 >
@@ -24,6 +25,7 @@
                     type="text" 
                     name="username" 
                     placeholder="Username" 
+                    value="{{ old('username') }}" 
                     class="block border border-gray-400 rounded-sm py-2 px-4 w-full text-sm md:text-base" 
                     required
                 >
@@ -37,6 +39,7 @@
                     type="text" 
                     name="email" 
                     placeholder="Email" 
+                    value="{{ old('email') }}" 
                     class="block border border-gray-400 rounded-sm py-2 px-4 w-full text-sm md:text-base" 
                     required
                 >

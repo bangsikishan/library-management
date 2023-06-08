@@ -28,3 +28,4 @@ Route::get('/login', [UserController::class, 'getLoginPage'])->name('users.login
 Route::post('/login', [UserController::class, 'login'])->name('users.login');
 Route::get('/signup', [UserController::class, 'getSignupPage'])->name('users.signupPage');
 Route::post('/signup', [UserController::class, 'signup'])->name('users.signup');
+Route::post('/logout', [UserController::class, 'logout'])->name('users.logout');

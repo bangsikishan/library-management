@@ -19,14 +19,34 @@
             <li class="font-semibold"><a href="{{ route('books.index') }}" class="hover:text-[#C45258]">Home</a></li>
             <li class="font-semibold"><a href="/" class="hover:text-[#C45258]">Books</a></li>
             <li class="font-semibold"><a href="/" class="hover:text-[#C45258]">About</a></li>
-            <li class="font-semibold sm:hidden"><a href="{{ route('users.loginPage') }}" class="hover:text-[#C45258]">Login</a></li>
+            @if(auth()->check())
+                <form action="{{ route('users.logout') }}" method="POST" class="sm:hidden">
+                    @csrf
+                    <li class="font-semibold sm:hidden">
+                        <button type="submit">Logout</button>
+                    </li>
+                </form>
+            @else
+                <li class="font-semibold sm:hidden"><a href="{{ route('users.loginPage') }}" class="hover:text-[#C45258]">Login</a></li>
+            @endif
         </ul>
-        <a href="{{ route('users.loginPage') }}" class="hidden items-center sm:flex">
-            Login
-            <span class="material-symbols-outlined cursor-pointer ml-1">
-                login
-            </span>
-        </a>
+        @if(auth()->check())
+            <form action="{{ route('users.logout') }}" method="POST" class="hidden items-center sm:flex">
+                @csrf
+                <button type="submit">
+                    <span type="submit" class="material-symbols-outlined cursor-pointer">
+                        logout
+                    </span>
+                </button>
+            </form>
+        @else
+            <a href="{{ route('users.loginPage') }}" class="hidden items-center sm:flex">
+                Login
+                <span class="material-symbols-outlined cursor-pointer ml-1">
+                    login
+                </span>
+            </a>
+        @endif
         <span class="hamburgermenu material-symbols-outlined cursor-pointer sm:hidden">
             menu
         </span>
